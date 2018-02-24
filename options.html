@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <head>
+  <style>
+  body {
+      background-image: url("images/beach.jpg");
+      background-size: auto;
+      background-size:cover;
+
+  }
+  h1 {
+    color: white;
+    text-align: center;
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    font-size: 80px;
+}
+p
+{
+  color: white;
+}
+body {
+    color: white;
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    font-size: 30px;
+    text-align: center;
+}
+  </style>
+  </head>
+<h1>My First Heading</h1>
+
+
+
+
+
+<form action="php-form-processor.php" method="post">
+    I'm feeling stressed about:
+    <select name="stress">
+      <option value="academics">Academics</option>
+      <option value="romantic_relationships">Romantic Relationships</option>
+      <option value="family">Family</option>
+      <option value="finances">Finances</option>
+      <option value="insecurity">Insecurity</option>
+      <option value="other">Other</option>
+    </select>
+    <br>
+    I prefer a :
+    <select name="preference">
+        <option value="personal">Personalized Counselor</option>
+        <option value="professional">Professional Counselor</option>
+    </select>
+    <br>
+    With the age of:
+    <select name="age">
+      <option value="18.24">18-24 years old</option>
+      <option value="25.34">25-34 years old</option>
+      <option value="35.44">35-44 years old</option>
+      <option value="45.54">45-54 years old</option>
+      <option value="null">No Preference</option>
+    </select>
+    <br>
+
+    Enter your zipcode:
+  <input name="zipcode" type="number">
+
+  <input type="submit" name="formSubmit" value="Submit" />
+
+
+  </form>
+
+
+
+
+
+
+</html>
