@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<body>
+  <head>
+  <style>
+  body {
+      background-image: url("images/beach.jpg");
+      background-size: auto;
+      background-size:cover;
+
+  }
+  h1 {
+    color: white;
+    text-align: center;
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    font-size: 80px;
+}
+p
+{
+  color: white;
+}
+body {
+    color: white;
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    font-size: 30px;
+    text-align: center;
+}
+  </style>
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  </head>
+<h1>Matcher</h1>
+
+
+
+
+
+<form id="frm1">
+    I'm feeling stressed about:
+    <select id="stress-select" name="stress">
+      <option value="academics">Academics</option>
+      <option value="romantic_relationships">Romance</option>
+      <option value="family">Family</option>
+      <option value="finances">Finances</option>
+      <option value="insecurity">Insecurity</option>
+      <option value="career">Career</option>
+      <option value="illness">Illness</option>
+      <option value="other">Other</option>
+    </select>
+    <br>
+    I prefer a :
+    <select id="preference-select" name="preference">
+        <option value="personal">Personalized Counselor</option>
+        <option value="professional">Professional Counselor</option>
+    </select>
+    <br>
+    With the age of:
+    <select id="age-select" name="age">
+      <option value="18-24">18-24 years old</option>
+      <option value="25-34">25-34 years old</option>
+      <option value="35-44">35-44 years old</option>
+      <option value="45-54">45-54 years old</option>
+      <option value="null">No Preference</option>
+    </select>
+    <br>
+
+    Enter your zipcode:
+  <input type="number" id="zipcode-select" value="2">
+
+  <button id="submit-button">Tryit</button>
+
+  <a href="startbootstrap-shop-item-gh-pages/helpers.html" class="btn btn-primary btn-lg">Destress</a>
+
+  </form>
+  <input type="number" id="myNumber" value="2">
+
+  <p>Click the button to get the number of the number field.</p>
+
+  <button onclick="myFunction()">Try it</button>
+
+  <p><strong>Note:</strong> input elements with type="number" are not supported in IE 9 and earlier versions.</p>
+
+  <p id="demo"></p>
+
+  <script>
+  function myFunction() {
+      var x = document.getElementById("zipcode-select").value;
+      document.getElementById("demo").innerHTML = x;
+  }
+  </script>
+
+ <script>
+
+$(document).ready(function(){
+  var frm1 = $("#frm1");
+  var submitBtn = $("#submit-button");
+  submitBtn.click(function(e){
+    e.preventDefault();
+    var stress = $("#stress-select");
+    var preference = $("#preference-select");
+    var age = $("#age-select");
+    var zipcode = document.getElementById("zipcode").value;
+    document.getElementById("demo").innerHTML = x;
+    alert(zipcode.val());
+
+
+  })
+})
+</script>
+
+
+
+
+
+</html>
