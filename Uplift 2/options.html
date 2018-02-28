@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<body>
+  <head>
+  <style>
+  body {
+      background-image: url("images/beach.jpg");
+      background-size: auto;
+      background-size:cover;
+  }
+  h1 {
+    color: white;
+    text-align: center;
+    font-family: 'Open Sans','Helvetica Neue';
+    font-size: 80px;
+    font-weight: normal;
+}
+p
+{
+  color: white;
+  margin-left: 35px;
+  font-size: 20px;
+}
+body {
+    color: white;
+    font-family: 'Open Sans','Helvetica Neue';
+    font-size: 30px;
+    text-align: center;
+}
+
+  </style>
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  </head>
+<h1>Find the Match</h1>
+
+
+
+
+
+<form id="frm1">
+    I'm feeling stressed about:
+    <select id="stress-select" name="stress">
+      <option value="Academics">Academics</option>
+      <option value="Romance">Romance</option>
+      <option value="Family">Family</option>
+      <option value="Finances">Finances</option>
+      <option value="Insecurity">Insecurity</option>
+      <option value="Career">Career</option>
+      <option value="Illness">Illness</option>
+      <option value="Other">Other</option>
+    </select>
+    <br>
+    I prefer a :
+    <select id="preference-select" name="preference">
+        <option value="Personal">Personalized Counselor</option>
+        <option value="Professional">Professional Counselor</option>
+        <option value="Either">Either</option>
+    </select>
+    <br>
+    With the age of:
+    <select id="age-select" name="age">
+      <option value="18-24">18-24 years old</option>
+      <option value="25-34">25-34 years old</option>
+      <option value="35-44">35-44 years old</option>
+      <option value="45-54">45-54 years old</option>
+      <option value="Null">No Preference</option>
+    </select>
+    <br>
+
+    Enter your zipcode:
+  <input type="number" id="zipcode-select" value="">
+
+  <button id="submit-button">Tryit</button>
+<br>
+Enter the name of your helper:
+<input type="text" id="z" value="">
+<a href="chatbot/chat.html" style="font: bold 14px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+" class="">Chat Now</a>
+
+
+
+
+
+  <p id="MyEdit1" ALIGN=LEFT style = "background-color:grey;">
+    <h1 id = "Name">
+
+    </h1>
+  </p>
+
+
+  <div id = "total1">
+    <img id = "img1" src='nature-forest-waves-trees.jpg' style= 'float: left; width:2px; height:2px;max-width: 150px; max-height: 150px'/>
+    <p id = "first" ALIGN=LEFT style = "background-color:grey; margin-left: 30px;">
+    </p>
+  <div>
+
+  <div id = "total2">
+    <img id = "img2" src='518356812.jpg' style= 'float: left; width:2px; height:2px; max-width: 150px; max-height: 150px'/>
+    <p id = "second" ALIGN=LEFT style = "background-color:grey;">
+    </p>
+  <div>
+
+  <div id = "total3">
+        <img id = "img3" src='italian-landscape-mountains-nature.jpg'  style= 'float: left; width:2px; height:2px; max-width: 150px; max-height: 150px'/>
+    <p id = "third" ALIGN=LEFT style = "background-color:grey;">
+
+    </p>
+  <div>
+
+  <div id = "total4">
+        <img id = "img4" src='nature_stock_hq_7_by_i3ehnam-d484z5y.jpg'  style= 'float: left; width:2px; height:2px; max-width: 150px; max-height: 150px'/>
+
+    <p id = "fourth" ALIGN=LEFT style = "background-color:grey;">
+    </p>
+  <div>
+
+
+  <div id = "total5">
+        <img id = "img5" src='pexels-photo-248771.jpg' style= 'float: left; width:2px; height:2px;max-width: 150px; max-height: 150px'/>
+    <p id = "fifth" ALIGN=LEFT style = "background-color:grey;">
+    </p>
+  <div>
+
+
+
+
+  </form>
+  <p id="demo"></p>
+
+ <script>
+    var helpers =  [
+      ["John", "Mullaney", "75001", "Personal", "Academics", "Romance", "Family", "20", "2144089967", "info1.jpg"],
+["Merrie", "Vancuren", "75005", "Professional", "Romance", "Family", "Finances", "21", "2144919988", "info2.jpg"],
+["Patrick", "Brent", "75009", "Personal", "Family", "Finances", "Insecurity", "23", "2145750009", "info3.jpg"],
+["Mae", "Coach", "75013", "Professional", "Finances", "Insecurity", "Career", "24", "2146580030", "info4.jpg"],
+["Von", "Veale", "75017", "Personal", "Insecurity", "Career", "Illness", "26", "2147410051", "info5.jpg"],
+["Keely", "Reddick", "75021", "Professional", "Academics", "Romance", "Family", "27", "2148240072", "info6.jpg"],
+["Ivan", "Steinbach", "75025", "Personal", "Romance", "Family", "Finances", "29", "2149070093", "info7.jpg"],
+["Bebe", "Westphal", "75029", "Professional", "Family", "Finances", "Insecurity", "30", "2144089967", "info8.jpg"],
+["Santos", "Bogner", "75033", "Personal", "Finances", "Insecurity", "Career", "32", "2144919988", "info9.jpg"],
+["Terisa", "Doughtie", "75037", "Professional", "Insecurity", "Career", "Illness", "33", "2145750009", "info10.jpg"],
+["Joey", "Tello", "75041", "Personal", "Academics", "Romance", "Family", "35", "2146580030", "info1.jpg"],
+["Marya", "Venters", "75045", "Professional", "Romance", "Family", "Finances", "36", "2147410051", "info2.jpg"],
+["Dudley", "Glassman", "75049", "Personal", "Family", "Finances", "Insecurity", "38", "2148240072", "info3.jpg"],
+["Meredith", "Block", "75053", "Professional", "Finances", "Insecurity", "Career", "39", "2149070093", "info4.jpg"],
+["Alonso", "Boston", "75057", "Personal", "Insecurity", "Career", "Illness", "41", "2144089967", "info5.jpg"],
+["Louanne", "Brookes", "75061", "Professional", "Academics", "Romance", "Family", "42", "2144919988", "info6.jpg"],
+["Wendell", "Hartz", "75065", "Personal", "Romance", "Family", "Finances", "44", "2145750009", "info7.jpg"],
+["Rhoda", "Lacher", "75069", "Professional", "Family", "Finances", "Insecurity", "45", "2146580030", "info8.jpg"],
+["Terrance", "Whitley", "75073", "Personal", "Finances", "Insecurity", "Career", "47", "2147410051", "info9.jpg"],
+["Dominque", "Lerner", "75077", "Professional", "Insecurity", "Career", "Illness", "48", "2148240072", "info10.jpg"],
+["Bo", "Sitler", "75081", "Personal", "Academics", "Romance", "Family", "50", "2149070093", "info1.jpg"],
+["Pennie", "Hunkins", "75085", "Professional", "Romance", "Family", "Finances", "51", "2144089967", "info2.jpg"],
+["Jayson", "Moralez", "75089", "Personal", "Family", "Finances", "Insecurity", "53", "2144919988", "info3.jpg"],
+["Kimiko", "Mcferren", "75093", "Professional", "Finances", "Insecurity", "Career", "54", "2145750009", "info4.jpg"],
+["Scot", "Kreps", "75097", "Personal", "Insecurity", "Career", "Illness", "56", "2146580030", "info5.jpg"],
+["Corrine", "Vitolo", "75101", "Professional", "Academics", "Romance", "Family", "57", "2147410051", "info6.jpg"],
+["Nigel", "Beauchamp", "75105", "Personal", "Romance", "Family", "Finances", "59", "2148240072", "info7.jpg"],
+["Shondra", "Bernardo", "75109", "Professional", "Family", "Finances", "Insecurity", "21", "2149070093", "info8.jpg"],
+["Steve", "Chuang", "75113", "Personal", "Finances", "Insecurity", "Career", "23", "2144089967", "info9.jpg"],
+["Francisca", "Bouyer", "75117", "Professional", "Insecurity", "Career", "Illness", "24", "2144919988", "info10.jpg"],
+["Duane", "Brazel", "75121", "Personal", "Academics", "Romance", "Family", "26", "2145750009", "info1.jpg"],
+["Ciera", "Ehlert", "75125", "Professional", "Romance", "Family", "Finances", "27", "2146580030", "info2.jpg"],
+["Michale", "Kammerer", "75129", "Personal", "Family", "Finances", "Insecurity", "29", "2147410051", "info3.jpg"],
+["Aleta", "Okada", "75133", "Professional", "Finances", "Insecurity", "Career", "30", "2148240072", "info4.jpg"],
+["Evan", "Jasper", "75137", "Personal", "Insecurity", "Career", "Illness", "32", "2149070093", "info5.jpg"],
+["Sharen", "Chao", "75141", "Professional", "Academics", "Romance", "Family", "33", "2144089967", "info6.jpg"],
+["Ike", "Thurber", "75145", "Personal", "Romance", "Family", "Finances", "35", "2144919988", "info7.jpg"],
+["Cassondra", "Berthold", "75149", "Professional", "Family", "Finances", "Insecurity", "36", "2145750009", "info8.jpg"],
+["Terrence", "Hoff", "75153", "Personal", "Finances", "Insecurity", "Career", "38", "2146580030", "info9.jpg"],
+["Sudie", "Newburn", "75157", "Professional", "Insecurity", "Career", "Illness", "39", "2147410051", "info10.jpg"],
+["Cristopher", "Gamache", "75161", "Personal", "Academics", "Romance", "Family", "41", "2148240072", "info1.jpg"],
+["Velda", "Plotner", "75165", "Professional", "Romance", "Family", "Finances", "42", "2149070093", "info2.jpg"],
+["Vance", "Roller", "75169", "Personal", "Family", "Finances", "Insecurity", "44", "2144089967", "info3.jpg"],
+["Emogene", "Lilly", "75173", "Professional", "Finances", "Insecurity", "Career", "45", "2144919988", "info4.jpg"],
+["Lauren", "Hogue", "75177", "Personal", "Insecurity", "Career", "Illness", "47", "2145750009", "info5.jpg"],
+["Jesenia", "Norrell", "75181", "Professional", "Academics", "Romance", "Family", "48", "2146580030", "info6.jpg"],
+["Nathanial", "Pancake", "75185", "Personal", "Romance", "Family", "Finances", "50", "2147410051", "info7.jpg"],
+["Annett", "Phelps", "75189", "Professional", "Family", "Finances", "Insecurity", "51", "2148240072", "info8.jpg"],
+["Rey", "Strahan", "75193", "Personal", "Finances", "Insecurity", "Career", "53", "2149070093", "info9.jpg"],
+["Daniell", "Alleman", "75197", "Professional", "Insecurity", "Career", "Illness", "54", "2144089967", "info10.jpg"],
+["Mack", "Schildgen", "75201", "Personal", "Academics", "Romance", "Family", "56", "2144919988", "info1.jpg"],
+["Alishia", "Daughtery", "75205", "Professional", "Romance", "Family", "Finances", "57", "2145750009", "info2.jpg"],
+["Wilbert", "Musson", "75209", "Personal", "Family", "Finances", "Insecurity", "59", "2146580030", "info3.jpg"],
+["Samira", "Conerly", "75213", "Professional", "Finances", "Insecurity", "Career", "21", "2147410051", "info4.jpg"],
+["Lindsey", "Walford", "75217", "Personal", "Insecurity", "Career", "Illness", "23", "2148240072", "info5.jpg"],
+["Carie", "Maki", "75221", "Professional", "Academics", "Romance", "Family", "24", "2149070093", "info6.jpg"],
+["Ken", "Butt", "75225", "Personal", "Romance", "Family", "Finances", "26", "2144089967", "info7.jpg"],
+["Marylou", "Deschamps", "75229", "Professional", "Family", "Finances", "Insecurity", "27", "2144919988", "info8.jpg"],
+["Barney", "Desroches", "75233", "Personal", "Finances", "Insecurity", "Career", "29", "2145750009", "info9.jpg"],
+["Anjanette", "Gilliland", "75237", "Professional", "Insecurity", "Career", "Illness", "30", "2146580030", "info10.jpg"],
+["Anthony", "Rocco", "75241", "Personal", "Academics", "Romance", "Family", "32", "2147410051", "info1.jpg"],
+["Shanae", "Baxley", "75245", "Professional", "Romance", "Family", "Finances", "33", "2148240072", "info2.jpg"],
+["Darrell", "Spink", "75249", "Personal", "Family", "Finances", "Insecurity", "35", "2149070093", "info3.jpg"],
+["Kizzy", "Brooke", "75253", "Professional", "Finances", "Insecurity", "Career", "36", "2144089967", "info4.jpg"],
+["Santiago", "Nardone", "75257", "Personal", "Insecurity", "Career", "Illness", "38", "2144919988", "info5.jpg"],
+["Cythia", "Fifield", "75261", "Professional", "Academics", "Romance", "Family", "39", "2145750009", "info6.jpg"],
+["Mathew", "Fray", "75265", "Personal", "Romance", "Family", "Finances", "41", "2146580030", "info7.jpg"],
+["Alycia", "Fitzgibbons", "75269", "Professional", "Family", "Finances", "Insecurity", "42", "2147410051", "info8.jpg"],
+["Ryan", "Paek", "75273", "Personal", "Finances", "Insecurity", "Career", "44", "2148240072", "info9.jpg"],
+["Janay", "Jardin", "75277", "Professional", "Insecurity", "Career", "Illness", "45", "2149070093", "info10.jpg"],
+["Lewis", "Puccio", "75281", "Personal", "Academics", "Romance", "Family", "47", "2144089967", "info1.jpg"],
+["Leeann", "Wasden", "75285", "Professional", "Romance", "Family", "Finances", "48", "2144919988", "info2.jpg"],
+["Warner", "Hollinger", "75289", "Personal", "Family", "Finances", "Insecurity", "50", "2145750009", "info3.jpg"],
+["Kalyn", "Gearheart", "75293", "Professional", "Finances", "Insecurity", "Career", "51", "2146580030", "info4.jpg"],
+["Alden", "Bustillos", "75297", "Personal", "Insecurity", "Career", "Illness", "53", "2147410051", "info5.jpg"],
+["Sunshine", "Sandoval", "75301", "Professional", "Academics", "Romance", "Family", "54", "2148240072", "info6.jpg"],
+["Irwin", "Easterling", "75305", "Personal", "Romance", "Family", "Finances", "56", "2149070093", "info7.jpg"],
+["Hope", "Alequin", "75309", "Professional", "Family", "Finances", "Insecurity", "57", "2144089967", "info8.jpg"],
+["Dallas", "Cropp", "75313", "Personal", "Finances", "Insecurity", "Career", "59", "2144919988", "info9.jpg"],
+["Roni", "Russel", "75317", "Professional", "Insecurity", "Career", "Illness", "21", "2145750009", "info10.jpg"],
+["Antonio", "Goates", "75321", "Personal", "Academics", "Romance", "Family", "23", "2146580030", "info1.jpg"],
+["Carry", "Kandoll", "75325", "Professional", "Romance", "Family", "Finances", "24", "2147410051", "info2.jpg"],
+["Hai", "Moran", "75329", "Personal", "Family", "Finances", "Insecurity", "26", "2148240072", "info3.jpg"],
+["Claudine", "Kubat", "75333", "Professional", "Finances", "Insecurity", "Career", "27", "2149070093", "info4.jpg"],
+["Florencio", "Speciale", "75337", "Personal", "Insecurity", "Career", "Illness", "29", "2144089967", "info5.jpg"],
+["Santana", "Larsen", "75341", "Professional", "Academics", "Romance", "Family", "30", "2144919988", "info6.jpg"],
+["Darius", "Bembry", "75345", "Personal", "Romance", "Family", "Finances", "32", "2145750009", "info7.jpg"],
+["Ching", "Bober", "75349", "Professional", "Family", "Finances", "Insecurity", "33", "2146580030", "info8.jpg"],
+["Wilburn", "Caton", "75353", "Personal", "Finances", "Insecurity", "Career", "35", "2147410051", "info9.jpg"],
+["Lianne", "Krol", "75357", "Professional", "Insecurity", "Career", "Illness", "36", "2148240072", "info10.jpg"],
+["Shelton", "Linz", "75361", "Personal", "Academics", "Romance", "Family", "38", "2149070093", "info1.jpg"],
+["Alisha", "Piekarski", "75365", "Professional", "Romance", "Family", "Finances", "39", "2144089967", "info2.jpg"],
+["Barton", "Greene", "75369", "Personal", "Family", "Finances", "Insecurity", "41", "2144919988", "info3.jpg"],
+["Dorcas", "Gabler", "75373", "Professional", "Finances", "Insecurity", "Career", "42", "2145750009", "info4.jpg"],
+["Eldridge", "Vogt", "75377", "Personal", "Insecurity", "Career", "Illness", "44", "2146580030", "info5.jpg"],
+["Estela", "Beatty", "75381", "Professional", "Academics", "Romance", "Family", "45", "2147410051", "info6.jpg"],
+["Julio", "Fawcett", "75385", "Personal", "Romance", "Family", "Finances", "47", "2148240072", "info7.jpg"],
+["Candelaria", "Vanalstyne", "75389", "Professional", "Family", "Finances", "Insecurity", "48", "2149070093", "info8.jpg"],
+["Darell", "Sherwin", "75393", "Personal", "Finances", "Insecurity", "Career", "50", "2144089967", "info9.jpg"],
+["Kaleigh", "Gipe", "75397", "Professional", "Insecurity", "Career", "Illness", "51", "2144919988", "info10.jpg"],
+["Kaleigh", "Gipe", "75401", "Personal", "Academics", "Romance", "Family", "53", "2145750009", "info1.jpg"] ];
+$(document).ready(function(){
+  var frm1 = $("#frm1");
+  var submitBtn = $("#submit-button");
+  var stress, preference, age, zipcode, min, max;
+  submitBtn.click(function(e){
+    e.preventDefault();
+    stress = document.getElementById("stress-select").value;
+    preference = document.getElementById("preference-select").value;
+    age = document.getElementById("age-select").value;
+    zipcode = document.getElementById("zipcode-select").value;
+    min = parseInt(age.substring(0, 2));
+    max = parseInt(age.substring(3,5));
+//          alert(helpers[i][0]);
+    //Do something
+    /*function Counselor(firstName, lastName, zipcode, type, stress1, stress2, stress3 , age, image) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.zipcode = zipcode;
+    this.type = type;
+    this.stress1 = stress1;
+    this.stress2=stress2;
+    this.stress3 = stress3;
+    this.age = age;
+    this.image = image;
+    }*/
+    file:///Users/october12th/Downloads/Website%202/startbootstrap-shop-item-gh-pages/helpers.html
+    var output= "<br>";
+    var output1 = "";
+    var output2 = "";
+    var output3 = "";
+    var output4 = "";
+    var output5 = "";
+    var counter = 0;
+    for (var i = 0; i < 100; i++) {
+      var works = false;
+      if (helpers[i][4] == stress || helpers[i][5] == stress || helpers[i][6]==stress)
+        if(helpers[i][3] == preference || preference == "Either")
+        {
+          //alert(helpers[i][0], helpers[i][2]);
+          if (age == "Null")
+          {
+            output += helpers[i][0] + " " +helpers[i][1]+ "<br>";
+            output += "Age: " + helpers[i][7]+ "<br>";
+            output += helpers[i][3] + " Conselor"+ "<br>";
+            output += "Specialities: " + helpers[i][4] + ", " + helpers[i][5] + ", " + helpers[i][6]+ "<br>";
+            output += "Location: " + helpers[i][2]+ "<br>"+ "<br>";
+            counter++;
+            works = true;
+          }
+          else
+          {
+            var min = parseInt(age.substring(0, 2));
+            var max = parseInt(age.substring(3,5));
+            var a = parseInt(helpers[i][7]);
+            if (a >= min && a <= max)
+            {
+              output += helpers[i][0] + " " +helpers[i][1]+ "<br>";
+              output += "Age: " + helpers[i][7]+ "<br>";
+              output += helpers[i][3] + " Conselor"+ "<br>";
+              output += "Specialities: " + helpers[i][4] + ", " + helpers[i][5] + ", " + helpers[i][6]+ "<br>";
+              output += "Location: " + helpers[i][2]+ "<br>"+ "<br>";
+              counter++;
+              //$("#MyEdit1").html(helpers[i][0]+ " " +helpers[i][1] + "\n");
+              //$("#MyEdit2").html(helpers[i][0]+ " " +helpers[i][1] + "\n");
+              works = true;
+            }
+          }
+         // console.log(i, works);
+          if (works == true)
+          {
+            if (counter == 1)
+            {
+              output1 += helpers[i][0] + " " +helpers[i][1]+ "<br>";
+              output1 += "Age: " + helpers[i][7]+ "<br>";
+              output1 += helpers[i][3] + " Conselor"+ "<br>";
+              output1 += "Specialities: " + helpers[i][4] + ", " + helpers[i][5] + ", " + helpers[i][6]+ "<br>";
+              output1 += "Location: " + helpers[i][2]+ "<br>";
+              output1 += "Contact: " + helpers[i][8] + "<br>";
+            }
+            if (counter == 2)
+            {
+              output2 += helpers[i][0] + " " +helpers[i][1]+ "<br>";
+              output2 += "Age: " + helpers[i][7]+ "<br>";
+              output2 += helpers[i][3] + " Conselor"+ "<br>";
+              output2 += "Specialities: " + helpers[i][4] + ", " + helpers[i][5] + ", " + helpers[i][6]+ "<br>";
+              output2 += "Location: " + helpers[i][2]+ "<br>";
+              output2 += "Contact: " + helpers[i][8] + "<br>";
+            }
+            if (counter == 3)
+            {
+              output3 += helpers[i][0] + " " +helpers[i][1]+ "<br>";
+              output3 += "Age: " + helpers[i][7]+ "<br>";
+              output3 += helpers[i][3] + " Conselor"+ "<br>";
+              output3 += "Specialities: " + helpers[i][4] + ", " + helpers[i][5] + ", " + helpers[i][6]+ "<br>";
+              output3 += "Location: " + helpers[i][2]+ "<br>";
+                            output3 += "Contact: " + helpers[i][8] + "<br>";
+            }
+            if (counter == 4)
+            {
+              output4 += helpers[i][0] + " " +helpers[i][1]+ "<br>";
+              output4 += "Age: " + helpers[i][7]+ "<br>";
+              output4 += helpers[i][3] + " Conselor"+ "<br>";
+              output4 += "Specialities: " + helpers[i][4] + ", " + helpers[i][5] + ", " + helpers[i][6]+ "<br>";
+              output4 += "Location: " + helpers[i][2]+ "<br>";
+                            output4 += "Contact: " + helpers[i][8] + "<br>";
+            }
+            if (counter == 5)
+            {
+              output5 += helpers[i][0] + " " +helpers[i][1]+ "<br>";
+              output5 += "Age: " + helpers[i][7]+ "<br>";
+              output5 += helpers[i][3] + " Conselor"+ "<br>";
+              output5 += "Specialities: " + helpers[i][4] + ", " + helpers[i][5] + ", " + helpers[i][6]+ "<br>";
+              output5 += "Location: " + helpers[i][2]+ "<br>";
+                            output5 += "Contact: " + helpers[i][8] + "<br>";
+            }
+            if (counter == 6)
+            {
+              break;
+            }
+          }
+        }
+      }
+      $("#first").html(output1);
+      $("#second").html(output2);
+      $("#third").html(output3);
+      $("#fourth").html(output4);
+      $("#fifth").html(output5);
+      if (output1 != "") {
+        document.getElementById("img1").style.height = "145px";
+        document.getElementById("img1").style.width = "150px";
+      }
+      if (output2 != "") {
+        document.getElementById("img2").style.height = "145px";
+        document.getElementById("img2").style.width = "150px";
+      }
+      if (output3 != "") {
+        document.getElementById("img3").style.height = "145px";
+        document.getElementById("img3").style.width = "150px";
+      }
+      if (output4 != "") {
+        document.getElementById("img4").style.height = "145px";
+        document.getElementById("img4").style.width = "150px";
+      }
+      if (output5 != "") {
+        document.getElementById("img5").style.height = "145px";
+        document.getElementById("img5").style.width = "150px";
+      }
+     })
+  })
+  //var Counselor = {firstName:""}
+</script>
+
+
+
+
+
+</html>
